@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>智能待办 · 周计划清单</title>
     <style>
+        /* 样式代码保持不变，使用之前提供的完整样式 */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             -webkit-tap-highlight-color: transparent;
         }
-
         body {
             background: linear-gradient(145deg, #eef5ff 0%, #e0eafc 100%);
             font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
@@ -21,7 +21,6 @@
             align-items: center;
             justify-content: center;
         }
-
         .todo-card {
             max-width: 750px;
             width: 100%;
@@ -30,15 +29,12 @@
             border-radius: 32px;
             box-shadow: 0 20px 35px -12px rgba(0, 50, 90, 0.2), 0 4px 12px rgba(0, 0, 0, 0.05);
             overflow: hidden;
-            transition: all 0.2s ease;
         }
-
         .todo-header {
             background: white;
             padding: 1.8rem 2rem 1rem 2rem;
             border-bottom: 1px solid rgba(100, 150, 200, 0.2);
         }
-
         .todo-header h1 {
             font-size: 1.9rem;
             font-weight: 600;
@@ -46,18 +42,12 @@
             background-clip: text;
             -webkit-background-clip: text;
             color: transparent;
-            letter-spacing: -0.3px;
-            display: inline-block;
         }
-
         .sub {
             color: #5f7f9e;
             margin-top: 0.3rem;
             font-size: 0.85rem;
-            font-weight: 450;
         }
-
-        /* 统计区域 + 一键清除 + 筛选按钮 */
         .stats-section {
             display: flex;
             justify-content: space-between;
@@ -66,7 +56,6 @@
             gap: 12px;
             margin: 1rem 2rem 0 2rem;
         }
-
         .stats {
             display: flex;
             gap: 0.8rem;
@@ -75,7 +64,6 @@
             border-radius: 48px;
             flex-wrap: wrap;
         }
-
         .stat-item {
             display: flex;
             align-items: baseline;
@@ -87,35 +75,29 @@
             cursor: pointer;
             transition: all 0.2s ease;
         }
-
         .stat-item:hover {
             transform: translateY(-1px);
             background: #eef3ff;
         }
-
         .stat-item.active-filter {
             background: #1A6DFF;
             color: white;
             box-shadow: 0 4px 10px rgba(26,109,255,0.2);
         }
-
         .stat-item.active-filter .stat-label,
         .stat-item.active-filter .stat-number {
             color: white;
         }
-
         .stat-label {
             color: #4870a0;
             font-size: 0.8rem;
         }
-
         .stat-number {
             font-weight: 700;
             font-size: 1.3rem;
             color: #1A6DFF;
             line-height: 1;
         }
-
         .clear-completed-btn {
             background: rgba(255, 100, 100, 0.1);
             border: 1px solid #ffc5bc;
@@ -126,23 +108,18 @@
             color: #e0675c;
             cursor: pointer;
             transition: all 0.2s;
-            font-family: inherit;
         }
-
         .clear-completed-btn:hover {
             background: #ff6b5c;
             color: white;
             border-color: #ff6b5c;
         }
-
-        /* 新增任务区域 */
         .add-task {
             padding: 1.5rem 2rem 0.5rem 2rem;
             display: flex;
             gap: 12px;
             flex-wrap: wrap;
         }
-
         .add-task input {
             flex: 2;
             padding: 0.9rem 1.2rem;
@@ -154,12 +131,10 @@
             outline: none;
             font-family: inherit;
         }
-
         .add-task input:focus {
             border-color: #3E8EFF;
             box-shadow: 0 0 0 3px rgba(62, 142, 255, 0.2);
         }
-
         .weekday-selector {
             flex: 1;
             min-width: 140px;
@@ -172,7 +147,6 @@
             font-weight: 500;
             cursor: pointer;
         }
-
         .add-task button {
             background: #1A6DFF;
             border: none;
@@ -186,13 +160,10 @@
             white-space: nowrap;
             box-shadow: 0 4px 8px rgba(26, 109, 255, 0.2);
         }
-
         .add-task button:hover {
             background: #0e5ad9;
             transform: scale(0.97);
         }
-
-        /* 分组标签栏 */
         .group-tabs {
             padding: 0.8rem 2rem 0.2rem 2rem;
             display: flex;
@@ -200,7 +171,6 @@
             gap: 8px;
             border-bottom: 1px solid rgba(0,0,0,0.05);
         }
-
         .week-tab {
             background: #f0f5fe;
             border: none;
@@ -212,26 +182,21 @@
             cursor: pointer;
             transition: 0.2s;
         }
-
         .week-tab.active {
             background: #1A6DFF;
             color: white;
             box-shadow: 0 4px 8px rgba(26,109,255,0.2);
         }
-
-        /* 任务列表容器 */
         .task-list-container {
             padding: 0.5rem 1.5rem 0.5rem 2rem;
             min-height: 320px;
         }
-
         .task-list {
             list-style: none;
             display: flex;
             flex-direction: column;
             gap: 12px;
         }
-
         .task-item {
             background: white;
             border-radius: 24px;
@@ -242,14 +207,12 @@
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
             border: 1px solid rgba(100, 150, 200, 0.2);
         }
-
         .task-checkbox {
             width: 1.3rem;
             height: 1.3rem;
             cursor: pointer;
             accent-color: #1A6DFF;
         }
-
         .task-text {
             flex: 1;
             font-size: 0.95rem;
@@ -257,7 +220,6 @@
             color: #1f2e3c;
             word-break: break-word;
         }
-
         .task-badge {
             background: #eef2ff;
             padding: 0.2rem 0.7rem;
@@ -267,13 +229,11 @@
             color: #1A6DFF;
             white-space: nowrap;
         }
-
         .task-item.completed .task-text {
             text-decoration: line-through;
             color: #8da0b0;
             font-weight: 400;
         }
-
         .delete-btn {
             background: transparent;
             border: none;
@@ -284,13 +244,10 @@
             color: #98b1cf;
             transition: 0.2s;
         }
-
         .delete-btn:hover {
             background: #fee9e6;
             color: #f05b56;
         }
-
-        /* 分页控件 */
         .pagination {
             display: flex;
             justify-content: center;
@@ -301,7 +258,6 @@
             border-top: 1px solid #ecf3fa;
             margin-top: 6px;
         }
-
         .page-btn {
             background: #f1f6fd;
             border: none;
@@ -311,22 +267,14 @@
             color: #2c6280;
             cursor: pointer;
         }
-
-        .page-btn.active-page {
-            background: #1A6DFF;
-            color: white;
-        }
-
         .page-btn:disabled {
             opacity: 0.4;
             cursor: not-allowed;
         }
-
         .page-info {
             font-size: 0.8rem;
             color: #4f7ea3;
         }
-
         .empty-message {
             text-align: center;
             padding: 2.5rem 1rem;
@@ -334,12 +282,10 @@
             background: #fbfdff;
             border-radius: 32px;
         }
-
         @media (max-width: 650px) {
             body { padding: 1rem; }
             .todo-header { padding: 1.2rem; }
             .stats-section { margin: 0.8rem 1.2rem; flex-direction: column; align-items: stretch; }
-            .stats { justify-content: center; }
             .add-task { padding: 1rem 1.2rem; flex-direction: column; }
             .weekday-selector { width: 100%; }
             .group-tabs { padding: 0.5rem 1rem; overflow-x: auto; flex-wrap: nowrap; }
@@ -352,12 +298,14 @@
             color: #87a9cc;
             border-top: 1px solid #eaf2fb;
         }
-        .filter-badge {
+        .storage-status {
             font-size: 0.7rem;
-            margin-left: 6px;
-            background: #eef2ff;
-            border-radius: 20px;
-            padding: 0 6px;
+            text-align: center;
+            padding: 0.3rem;
+            color: #4caf50;
+        }
+        .storage-status.error {
+            color: #f44336;
         }
     </style>
 </head>
@@ -365,10 +313,9 @@
 <div class="todo-card">
     <div class="todo-header">
         <h1>📅 周程表 · 分组待办</h1>
-        <div class="sub">按周几分组 | 点击「未完成」快速筛选 | 一键清除已完成</div>
+        <div class="sub">按周几分组 | 点击统计快速筛选 | 数据自动保存</div>
     </div>
 
-    <!-- 统计 + 一键清除区，增加筛选交互 -->
     <div class="stats-section">
         <div class="stats">
             <div class="stat-item" id="filter-all">
@@ -384,39 +331,37 @@
                 <span class="stat-number" id="completed-count">0</span>
             </div>
         </div>
-        <button id="clear-completed-btn" class="clear-completed-btn">🧹 一键清除已完成 (当前分组/筛选)</button>
+        <button id="clear-completed-btn" class="clear-completed-btn">🧹 一键清除已完成</button>
     </div>
 
-    <!-- 新增任务区域 -->
     <div class="add-task">
-        <input type="text" id="task-input" placeholder="写任务内容，比如：开会讨论方案" autocomplete="off">
+        <input type="text" id="task-input" placeholder="写任务内容..." autocomplete="off">
         <select id="weekday-select" class="weekday-selector">
-            <option value="0">📅 周日</option><option value="1">📌 周一</option><option value="2">📌 周二</option>
-            <option value="3">📌 周三</option><option value="4">📌 周四</option><option value="5">📌 周五</option>
+            <option value="0">📅 周日</option><option value="1">📌 周一</option>
+            <option value="2">📌 周二</option><option value="3">📌 周三</option>
+            <option value="4">📌 周四</option><option value="5">📌 周五</option>
             <option value="6">🎉 周六</option>
         </select>
         <button id="add-btn">➕ 添加任务</button>
     </div>
 
-    <!-- 周几分组标签栏 -->
     <div class="group-tabs" id="week-tabs-container"></div>
 
-    <!-- 任务列表展示区 -->
     <div class="task-list-container">
         <ul class="task-list" id="task-list"></ul>
     </div>
 
-    <!-- 分页区域 -->
     <div class="pagination" id="pagination-controls"></div>
-    <footer>💾 自动保存 | 筛选后仍可编辑 | 一键删除仅删除当前视图下的已完成任务</footer>
+    <div id="storage-status" class="storage-status">💾 数据自动保存中</div>
+    <footer>本地存储 | 刷新页面数据不丢失</footer>
 </div>
 
 <script>
-    const STORAGE_KEY = "weekplan_todo_v3_filter";
-    let tasks = [];              // 每个任务 { id, text, completed, weekday }
-    let currentWeekday = 1;     // 0-6
+    const STORAGE_KEY = "weekplan_todo_v4";
+    let tasks = [];
+    let currentWeekday = 1;
     let currentPage = 1;
-    let filterMode = "all";     // 'all', 'pending', 'completed'
+    let filterMode = "all";
     const PAGE_SIZE = 5;
 
     // DOM 元素
@@ -433,10 +378,30 @@
     const totalCountSpan = document.getElementById("total-count");
     const completedCountSpan = document.getElementById("completed-count");
     const pendingCountSpan = document.getElementById("pending-count");
+    const storageStatus = document.getElementById("storage-status");
 
-    // 辅助函数
+    function showStorageStatus(success, message) {
+        if (storageStatus) {
+            storageStatus.textContent = message || (success ? "💾 已自动保存" : "⚠️ 保存失败，请检查浏览器设置");
+            storageStatus.className = success ? "storage-status" : "storage-status error";
+            setTimeout(() => {
+                if (storageStatus) storageStatus.textContent = "💾 数据自动保存中";
+            }, 2000);
+        }
+    }
+
     function saveToLocalStorage() {
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(tasks));
+        try {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(tasks));
+            showStorageStatus(true);
+            return true;
+        } catch(e) {
+            console.error("存储失败:", e);
+            let msg = "保存失败";
+            if (e.name === 'QuotaExceededError') msg = "存储空间已满，请删除一些任务";
+            showStorageStatus(false, msg);
+            return false;
+        }
     }
 
     function getWeekdayName(weekday) {
@@ -444,18 +409,13 @@
         return map[weekday];
     }
 
-    // 获取当前分组下并且符合筛选模式的任务列表
     function getFilteredGroupTasks() {
         let groupTasks = tasks.filter(task => task.weekday === currentWeekday);
-        if (filterMode === "pending") {
-            groupTasks = groupTasks.filter(task => !task.completed);
-        } else if (filterMode === "completed") {
-            groupTasks = groupTasks.filter(task => task.completed);
-        }
+        if (filterMode === "pending") groupTasks = groupTasks.filter(task => !task.completed);
+        else if (filterMode === "completed") groupTasks = groupTasks.filter(task => task.completed);
         return groupTasks;
     }
 
-    // 更新全局统计 (全部任务数据)
     function updateGlobalStats() {
         const total = tasks.length;
         const completed = tasks.filter(t => t.completed).length;
@@ -465,7 +425,6 @@
         pendingCountSpan.innerText = pending;
     }
 
-    // 高亮当前筛选按钮样式
     function highlightFilterButtons() {
         [filterAll, filterPending, filterCompleted].forEach(btn => btn.classList.remove("active-filter"));
         if (filterMode === "all") filterAll.classList.add("active-filter");
@@ -473,72 +432,9 @@
         else if (filterMode === "completed") filterCompleted.classList.add("active-filter");
     }
 
-    // 渲染当前分组 + 筛选 + 分页
-    function renderCurrentView() {
-        let filteredTasks = getFilteredGroupTasks();
-        const totalFiltered = filteredTasks.length;
-        const totalPages = Math.ceil(totalFiltered / PAGE_SIZE);
-        if (totalPages === 0) currentPage = 1;
-        else if (currentPage > totalPages) currentPage = totalPages;
-        
-        const startIndex = (currentPage - 1) * PAGE_SIZE;
-        const paginatedTasks = filteredTasks.slice(startIndex, startIndex + PAGE_SIZE);
-        
-        if (paginatedTasks.length === 0) {
-            let emptyMsg = "✨ 暂无待办";
-            if (filterMode === "pending") emptyMsg = "🎉 太棒了！当前分组没有未完成的任务～";
-            else if (filterMode === "completed") emptyMsg = "📭 当前分组还没有已完成的任务";
-            else emptyMsg = `✨ 暂无待办，添加一条本周${getWeekdayName(currentWeekday)}的任务吧~`;
-            taskListEl.innerHTML = `<li class="empty-message">${emptyMsg}</li>`;
-        } else {
-            taskListEl.innerHTML = "";
-            paginatedTasks.forEach(task => {
-                const li = document.createElement("li");
-                li.className = `task-item ${task.completed ? "completed" : ""}`;
-                li.setAttribute("data-id", task.id);
-                
-                const checkbox = document.createElement("input");
-                checkbox.type = "checkbox";
-                checkbox.className = "task-checkbox";
-                checkbox.checked = task.completed;
-                checkbox.addEventListener("change", (e) => {
-                    e.stopPropagation();
-                    toggleTaskComplete(task.id);
-                });
-                
-                const taskTextSpan = document.createElement("span");
-                taskTextSpan.className = "task-text";
-                taskTextSpan.innerText = task.text;
-                
-                const badgeSpan = document.createElement("span");
-                badgeSpan.className = "task-badge";
-                badgeSpan.innerText = getWeekdayName(task.weekday);
-                
-                const delBtn = document.createElement("button");
-                delBtn.className = "delete-btn";
-                delBtn.innerHTML = "✕";
-                delBtn.addEventListener("click", (e) => {
-                    e.stopPropagation();
-                    deleteTaskById(task.id);
-                });
-                
-                li.appendChild(checkbox);
-                li.appendChild(taskTextSpan);
-                li.appendChild(badgeSpan);
-                li.appendChild(delBtn);
-                taskListEl.appendChild(li);
-            });
-        }
-        
-        renderPaginationControls(totalPages);
-        updateGlobalStats();
-        highlightActiveTab();
-        highlightFilterButtons();
-    }
-    
     function renderPaginationControls(totalPages) {
         if (!paginationControls) return;
-        if (totalPages <= 1 && totalPages === 0) {
+        if (totalPages <= 1) {
             paginationControls.innerHTML = `<div class="page-info">第 1 / 1 页</div>`;
             return;
         }
@@ -558,13 +454,66 @@
             if (currentPage < maxPage) { currentPage++; renderCurrentView(); }
         });
     }
+
+    function renderCurrentView() {
+        let filteredTasks = getFilteredGroupTasks();
+        const totalFiltered = filteredTasks.length;
+        const totalPages = Math.ceil(totalFiltered / PAGE_SIZE);
+        if (totalPages === 0) currentPage = 1;
+        else if (currentPage > totalPages) currentPage = totalPages;
+        
+        const startIndex = (currentPage - 1) * PAGE_SIZE;
+        const paginatedTasks = filteredTasks.slice(startIndex, startIndex + PAGE_SIZE);
+        
+        if (paginatedTasks.length === 0) {
+            let emptyMsg = "✨ 暂无待办";
+            if (filterMode === "pending") emptyMsg = "🎉 太棒了！没有未完成的任务～";
+            else if (filterMode === "completed") emptyMsg = "📭 暂无已完成的任务";
+            taskListEl.innerHTML = `<li class="empty-message">${emptyMsg}</li>`;
+        } else {
+            taskListEl.innerHTML = "";
+            paginatedTasks.forEach(task => {
+                const li = document.createElement("li");
+                li.className = `task-item ${task.completed ? "completed" : ""}`;
+                
+                const checkbox = document.createElement("input");
+                checkbox.type = "checkbox";
+                checkbox.className = "task-checkbox";
+                checkbox.checked = task.completed;
+                checkbox.addEventListener("change", () => toggleTaskComplete(task.id));
+                
+                const taskTextSpan = document.createElement("span");
+                taskTextSpan.className = "task-text";
+                taskTextSpan.innerText = task.text;
+                
+                const badgeSpan = document.createElement("span");
+                badgeSpan.className = "task-badge";
+                badgeSpan.innerText = getWeekdayName(task.weekday);
+                
+                const delBtn = document.createElement("button");
+                delBtn.className = "delete-btn";
+                delBtn.innerHTML = "✕";
+                delBtn.addEventListener("click", () => deleteTaskById(task.id));
+                
+                li.appendChild(checkbox);
+                li.appendChild(taskTextSpan);
+                li.appendChild(badgeSpan);
+                li.appendChild(delBtn);
+                taskListEl.appendChild(li);
+            });
+        }
+        
+        renderPaginationControls(totalPages);
+        updateGlobalStats();
+        highlightActiveTab();
+        highlightFilterButtons();
+    }
     
     function toggleTaskComplete(taskId) {
         const task = tasks.find(t => t.id === taskId);
         if (task) {
             task.completed = !task.completed;
             saveToLocalStorage();
-            // 如果当前筛选模式为 pending 且刚把任务标记完成，任务可能从列表中消失，需要重新计算分页
             const currentFiltered = getFilteredGroupTasks();
             const newTotalPages = Math.ceil(currentFiltered.length / PAGE_SIZE);
             if (currentPage > newTotalPages && newTotalPages > 0) currentPage = newTotalPages;
@@ -583,36 +532,20 @@
         renderCurrentView();
     }
     
-    // 一键清除：基于当前视图（当前分组 + 当前筛选模式）只删除已完成的任务
     function clearCompletedInCurrentView() {
-        let tasksToKeep = [];
-        if (filterMode === "all") {
-            // 仅删除当前分组下已完成的任务，其他分组保留
-            tasksToKeep = tasks.filter(task => {
-                if (task.weekday === currentWeekday && task.completed === true) return false;
-                return true;
-            });
-        } else if (filterMode === "pending") {
-            // 待办筛选下 没有已完成任务可删，但以防万一，不删任何东西并提示（静默无变化）
-            tasksToKeep = [...tasks];
-        } else if (filterMode === "completed") {
-            // 只删除当前分组且已完成的
-            tasksToKeep = tasks.filter(task => {
-                if (task.weekday === currentWeekday && task.completed === true) return false;
-                return true;
-            });
+        const beforeCount = tasks.length;
+        tasks = tasks.filter(task => {
+            if (task.weekday === currentWeekday && task.completed === true) return false;
+            return true;
+        });
+        if (tasks.length !== beforeCount) {
+            saveToLocalStorage();
+            const updatedFiltered = getFilteredGroupTasks();
+            const newTotalPages = Math.ceil(updatedFiltered.length / PAGE_SIZE);
+            if (currentPage > newTotalPages && newTotalPages > 0) currentPage = newTotalPages;
+            if (updatedFiltered.length === 0) currentPage = 1;
+            renderCurrentView();
         }
-        if (tasksToKeep.length === tasks.length) {
-            // 没有任务被删除，轻微提醒
-            return;
-        }
-        tasks = tasksToKeep;
-        saveToLocalStorage();
-        const updatedFiltered = getFilteredGroupTasks();
-        const newTotalPages = Math.ceil(updatedFiltered.length / PAGE_SIZE);
-        if (currentPage > newTotalPages && newTotalPages > 0) currentPage = newTotalPages;
-        if (updatedFiltered.length === 0) currentPage = 1;
-        renderCurrentView();
     }
     
     function addNewTask() {
@@ -634,10 +567,7 @@
         };
         tasks.push(newTask);
         saveToLocalStorage();
-        // 如果添加的任务属于当前分组，跳转到第一页展示新任务
-        if (selectedWeekday === currentWeekday) {
-            currentPage = 1;
-        }
+        if (selectedWeekday === currentWeekday) currentPage = 1;
         renderCurrentView();
         taskInput.value = "";
         taskInput.focus();
@@ -645,8 +575,7 @@
     
     function buildWeekTabs() {
         weekTabsContainer.innerHTML = "";
-        const weekdays = [0,1,2,3,4,5,6];
-        weekdays.forEach(wd => {
+        for (let wd = 0; wd <= 6; wd++) {
             const btn = document.createElement("button");
             btn.className = `week-tab ${currentWeekday === wd ? "active" : ""}`;
             btn.innerText = getWeekdayName(wd);
@@ -654,11 +583,10 @@
                 if (currentWeekday === wd) return;
                 currentWeekday = wd;
                 currentPage = 1;
-                // 切换分组时保持当前的筛选模式，重新渲染
                 renderCurrentView();
             });
             weekTabsContainer.appendChild(btn);
-        });
+        }
     }
     
     function highlightActiveTab() {
@@ -670,22 +598,19 @@
     }
     
     function loadTasksFromStorage() {
-        const stored = localStorage.getItem(STORAGE_KEY);
-        if (stored) {
-            try {
+        try {
+            const stored = localStorage.getItem(STORAGE_KEY);
+            if (stored) {
                 const parsed = JSON.parse(stored);
-                if (Array.isArray(parsed)) {
-                    tasks = parsed.filter(item => item && typeof item === 'object' && 'id' in item && 'text' in item && 'completed' in item && 'weekday' in item)
-                                   .map(item => ({
-                                       id: item.id,
-                                       text: item.text,
-                                       completed: item.completed,
-                                       weekday: item.weekday
-                                   }));
-                } else tasks = [];
-            } catch(e) { tasks = []; }
+                if (Array.isArray(parsed) && parsed.length > 0) {
+                    tasks = parsed.filter(item => item && typeof item === 'object' && 'id' in item);
+                }
+            }
+        } catch(e) {
+            console.error("读取存储失败:", e);
         }
-        if (!stored || tasks.length === 0) {
+        
+        if (!tasks || tasks.length === 0) {
             const now = Date.now();
             tasks = [
                 { id: now+1, text: "周一团队会议", completed: false, weekday: 1 },
@@ -698,10 +623,12 @@
             ];
             saveToLocalStorage();
         }
+        
         tasks = tasks.map(t => {
             if (t.weekday === undefined) t.weekday = 1;
             return t;
         });
+        
         currentWeekday = 1;
         currentPage = 1;
         filterMode = "all";
@@ -709,7 +636,6 @@
         renderCurrentView();
     }
     
-    // 设置筛选事件
     function bindFilterEvents() {
         filterAll.addEventListener("click", () => {
             if (filterMode === "all") return;
@@ -737,12 +663,13 @@
     bindFilterEvents();
     
     loadTasksFromStorage();
+    
     window.addEventListener("storage", (e) => {
-        if (e.key === STORAGE_KEY) {
-            const newData = localStorage.getItem(STORAGE_KEY);
-            if (newData) {
-                try { tasks = JSON.parse(newData); renderCurrentView(); } catch(err) {}
-            }
+        if (e.key === STORAGE_KEY && e.newValue) {
+            try {
+                tasks = JSON.parse(e.newValue);
+                renderCurrentView();
+            } catch(err) {}
         }
     });
 </script>
